@@ -1,12 +1,25 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import React,{useState} from 'react'
 
 import { blogsData } from '../data'
+// eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom';
 
 const Blogs = () => {
-  // eslint-disable-next-line no-unused-vars
+   
   const [blogs,setBlogs]=useState(blogsData);
+  const truncateString=(str,num)=>{
+    if(str.length>num){
+      return str.slice(0,num);
+
+    }
+    else{
+      return str;
+
+    }
+  }
+  
   return (
     <div>
         <h3>Blogs</h3>
@@ -16,8 +29,8 @@ const Blogs = () => {
               const {id,title,body}=blog;
               return  <article key={id}>
                 <h3>{title}</h3>
-                <p>{body}</p>
-               {/* <Link to='/title'>leran more</Link> */}
+                <p>{truncateString(body,300)}</p>
+               <Link to='/title'>leran more</Link>
               </article>
              })
           }
@@ -27,4 +40,4 @@ const Blogs = () => {
   )
 }
 
-export default Blogs
+export default Blogs;
