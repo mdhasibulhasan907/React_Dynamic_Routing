@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 const Blogs = () => {
    
   const [blogs,setBlogs]=useState(blogsData);
+  const [BodyData,setBodydata]=useState("");
+
+
   const truncateString=(str,num)=>{
     if(str.length>num){
       return str.slice(0,num);
