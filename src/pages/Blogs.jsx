@@ -3,12 +3,14 @@
 import React,{useState} from 'react'
 
 import { blogsData } from '../data'
-// eslint-disable-next-line no-unused-vars
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 const Blogs = () => {
    
   const [blogs,setBlogs]=useState(blogsData);
+  const [BodyData,setBodydata]=useState("");
+
+
   const truncateString=(str,num)=>{
     if(str.length>num){
       return str.slice(0,num);
@@ -30,7 +32,7 @@ const Blogs = () => {
               return  <article key={id}>
                 <h3>{title}</h3>
                 <p>{truncateString(body,300)}</p>
-               <Link to='/title'>leran more</Link>
+               <Link to={title}>learn more</Link>
               </article>
              })
           }
